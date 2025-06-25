@@ -1,0 +1,25 @@
+plugins {
+    id 'java';
+    id 'checkstyle'
+}
+
+group = 'com.cicd'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion = "10.12.3"
+    config = resources.text.fromFile("config.xml")
+}
